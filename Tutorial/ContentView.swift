@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-//posso usar assim VStack(alignment: .leading, spacing: 20)
-//mudando de VStack para Zstack
+// posso usar assim VStack(alignment: .leading, spacing: 20)
+// mudando de VStack para Zstack
 // borda pontilhada   .strokeBorder(style: StrokeStyle(lineWidth: 10, dash: [10,2]) )
 
 struct ContentView: View {
