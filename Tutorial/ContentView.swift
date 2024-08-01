@@ -23,6 +23,7 @@ struct ContentView: View {
     }
 }
 
+
 struct Card: View {
     var isFaceUp: Bool = false
     var body: some View {
