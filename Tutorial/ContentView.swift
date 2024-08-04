@@ -17,13 +17,21 @@ import SwiftUI
 
 // onTapGesture pega o clique na tela
 
+// pode ser assim
+//        .onTapGesture {
+//      isFaceUp = !isFaceUp
+// }
+
+// ou
+// isFaceUp.toggle()
+
 struct AppTutorial: View {
     var body: some View {
         HStack {
-            Card(isFaceUp: true)
-            Card(isFaceUp: false)
-            Card(isFaceUp: true)
-            Card()
+            Card(contentImagem: "💻", isFaceUp: true)
+            Card(contentImagem: "🚕", isFaceUp: false)
+            Card(contentImagem: "💻", isFaceUp: true)
+            Card(contentImagem: "🚕")
         }
         .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
         .padding()
@@ -32,6 +40,7 @@ struct AppTutorial: View {
 
 
 struct Card: View {
+    let contentImagem: String
     @State var isFaceUp: Bool = false
     var body: some View {
         ZStack {
@@ -42,7 +51,7 @@ struct Card: View {
                 RoundedRectangle(cornerRadius: 12).fill(.gray)
                 RoundedRectangle(cornerRadius: 12)
                     .strokeBorder(lineWidth: 10)
-                Text("💻").padding().font(.largeTitle)
+                Text(contentImagem).padding().font(.largeTitle)
             } else {
                 card.fill()
                 Text("").padding().font(.largeTitle)
@@ -50,7 +59,7 @@ struct Card: View {
             }
         }
         .onTapGesture {
-            isFaceUp = !isFaceUp
+            isFaceUp.toggle()
         }
     }
 }
