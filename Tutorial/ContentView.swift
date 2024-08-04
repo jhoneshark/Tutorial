@@ -15,12 +15,15 @@ import SwiftUI
 // posso usar assim RoundedRectangle(cornerRadius: 12).fill(.gray) ou criar uma vareavel
 // e mandar assim var card: RoundedRectangle = RoundedRectangle(cornerRadius: 12)
 
-struct ContentView: View {
+// onTapGesture pega o clique na tela
+
+struct AppTutorial: View {
     var body: some View {
         HStack {
             Card(isFaceUp: true)
             Card(isFaceUp: false)
             Card(isFaceUp: true)
+            Card()
         }
         .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
         .padding()
@@ -29,11 +32,12 @@ struct ContentView: View {
 
 
 struct Card: View {
-    var isFaceUp: Bool = false
+    @State var isFaceUp: Bool = false
     var body: some View {
-        ZStack(alignment: .center , content: {
+        ZStack {
             
-            var card: RoundedRectangle = RoundedRectangle(cornerRadius: 12)
+            let card: RoundedRectangle = RoundedRectangle(cornerRadius: 12)
+            
             if isFaceUp {
                 RoundedRectangle(cornerRadius: 12).fill(.gray)
                 RoundedRectangle(cornerRadius: 12)
@@ -44,7 +48,10 @@ struct Card: View {
                 Text("").padding().font(.largeTitle)
                 
             }
-        })
+        }
+        .onTapGesture {
+            isFaceUp = !isFaceUp
+        }
     }
 }
 
@@ -67,5 +74,5 @@ struct Card: View {
 
 
 #Preview {
-    ContentView()
+    AppTutorial()
 }
