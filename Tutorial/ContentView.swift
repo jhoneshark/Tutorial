@@ -26,14 +26,29 @@ import SwiftUI
 // isFaceUp.toggle()
 
 struct AppTutorial: View {
+    var emojis: [String] = ["🐭", "🐸", "🐱", "🐳"]
+    
+    var cardCount: Int = 4
+    
     var body: some View {
-        HStack {
-            Card(contentImagem: "💻", isFaceUp: true)
-            Card(contentImagem: "🚕", isFaceUp: false)
-            Card(contentImagem: "💻", isFaceUp: true)
-            Card(contentImagem: "🚕")
+        VStack {
+            HStack {
+                Card(contentImagem: emojis[0], isFaceUp: true)
+                Card(contentImagem: emojis[1], isFaceUp: false)
+                Card(contentImagem: "💻", isFaceUp: true)
+                Card(contentImagem: "🚕")
+            }
+            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+            HStack {
+                Button("remover") {
+                    print("tchaw")
+                }
+                Spacer()
+                Button("Adicionar") {
+                    print("oi")
+                }
+            }
         }
-        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
         .padding()
     }
 }
