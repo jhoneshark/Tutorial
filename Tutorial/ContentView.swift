@@ -22,6 +22,8 @@ import SwiftUI
 //      isFaceUp = !isFaceUp
 // }
 
+
+
 // ou
 // isFaceUp.toggle()
 
@@ -40,14 +42,16 @@ struct AppTutorial: View {
             }
             .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
             HStack {
-                Button("remover") {
-                    print("tchaw")
+                Button("Remover") {
+                    print("Remover")
                 }
                 Spacer()
-                Button("Adicionar") {
-                    print("oi")
+                Button("Adicionar"){
+                    print("Adicionar")
                 }
+                
             }
+
         }
         .padding()
     }
@@ -64,8 +68,8 @@ struct Card: View {
             
             if isFaceUp {
                 RoundedRectangle(cornerRadius: 12).fill(.gray)
-                RoundedRectangle(cornerRadius: 12)
-                    .strokeBorder(lineWidth: 10)
+                RoundedRectangle(cornerRadius: 10)
+                    .strokeBorder(lineWidth: 5)
                 Text(contentImagem).padding().font(.largeTitle)
             } else {
                 card.fill()
