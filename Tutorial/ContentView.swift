@@ -42,28 +42,35 @@ import SwiftUI
 //}
 
 struct AppTutorial: View {
-    var emojis: [String] = ["🐭", "🐸", "🐱", "🐳"]
+    var emojis: [String] = ["🐭", "🐸", "🐱", "🐳", "⌚️", "💻", "🖥️", "📱"]
     
-    var cardCount: Int = 4
+    @State var cardCount: Int = 4
     
     var body: some View {
         VStack {
             HStack {
-                ForEach (emojis.indices, id: \.self) { index in
+                ForEach (0..<cardCount, id: \.self) { index in
                     Card(contentImagem: emojis[index])
                 }
             }
             .foregroundColor(.blue)
             HStack {
-                Button("Remover") {
-                    print("Remover")
-                }
+                Button(action: {
+                    if (cardCount > 1) {
+                        cardCount -= 1
+                    }
+                }, label: {
+                    Image(systemName: "rectangle.stack.badge.minus.fill")
+                })
                 Spacer()
-                Button("Adicionar"){
-                    print("Adicionar")
-                }
-                
-            }
+                Button(action: {
+                    if (cardCount < emojis.count) {
+                        cardCount += 1
+                    }
+                }, label: {
+                    Image(systemName: "rectangle.stack.badge.plus.fill")
+                })
+            }.imageScale(.large).font(.largeTitle)
 
         }
         .padding()
