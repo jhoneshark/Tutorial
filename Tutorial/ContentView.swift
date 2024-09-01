@@ -27,6 +27,20 @@ import SwiftUI
 // ou
 // isFaceUp.toggle()
 
+//temos o foreach assim             HStack {
+//    ForEach (0..<4, id: \.self) { index in
+//        Card(contentImagem: emojis[index])
+//    }
+//}
+//
+//e assim
+//
+//HStack {
+//ForEach (emojis.indices, id: \.self) { index in
+//    Card(contentImagem: emojis[index])
+//}
+//}
+
 struct AppTutorial: View {
     var emojis: [String] = ["🐭", "🐸", "🐱", "🐳"]
     
@@ -35,12 +49,11 @@ struct AppTutorial: View {
     var body: some View {
         VStack {
             HStack {
-                Card(contentImagem: emojis[0], isFaceUp: true)
-                Card(contentImagem: emojis[1], isFaceUp: false)
-                Card(contentImagem: "💻", isFaceUp: true)
-                Card(contentImagem: "🚕")
+                ForEach (emojis.indices, id: \.self) { index in
+                    Card(contentImagem: emojis[index])
+                }
             }
-            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+            .foregroundColor(.blue)
             HStack {
                 Button("Remover") {
                     print("Remover")
@@ -65,11 +78,9 @@ struct Card: View {
         ZStack {
             
             let card: RoundedRectangle = RoundedRectangle(cornerRadius: 12)
-            
             if isFaceUp {
-                RoundedRectangle(cornerRadius: 12).fill(.gray)
-                RoundedRectangle(cornerRadius: 10)
-                    .strokeBorder(lineWidth: 5)
+                card.fill(.gray)
+                .strokeBorder(lineWidth: 5)
                 Text(contentImagem).padding().font(.largeTitle)
             } else {
                 card.fill()
