@@ -10,7 +10,7 @@ Neste tutorial, você aprenderá a construir um simples jogo da memória, onde o
 
 Antes de começar, você precisará do seguinte:
 
-- Xcode 12 ou superior
+- Xcode 15 ou superior
 - Um Mac com macOS Big Sur ou superior
 - Conhecimentos básicos de Swift e do desenvolvimento para iOS
 
