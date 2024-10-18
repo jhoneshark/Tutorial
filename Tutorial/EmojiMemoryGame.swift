@@ -17,6 +17,6 @@ class EmojiMemoryGame {
     }
     
     func choose(_ card: MemoryGame<String>.Card) {
-        //        model.choose(card)
+        //       model.choose(card)
     }
 }
